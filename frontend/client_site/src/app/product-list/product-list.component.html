@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <h3>Add a Product</h3>
+    <form [formGroup]="productRef" (ngSubmit)="storeProductDetails()" id="productRef">
+        <label>Code:&nbsp;</label>
+        <input type="text" formControlName="code" required/>&nbsp;<br/>
+        <label>Name:&nbsp;</label>
+        <input type="text" formControlName="name" required/>&nbsp;<br/>
+        <label>Details:&nbsp;</label>
+        <input type="text" formControlName="details" required/>&nbsp;<br/>
+        <label>Image (URL):&nbsp;</label>
+        <input type="text" formControlName="image" required/>&nbsp;<br/>
+        <label>Price:&nbsp;</label>
+        <input type="number" formControlName="price" required/>&nbsp;<br/>
+        <label>Company:&nbsp;</label>
+        <select formControlName="company" required>
+            <option value="{{company._id}}" *ngFor="let company of companies;">{{company.name}}</option>
+        </select><br/>
+        <input type="submit">
+    </form>
+    <br/>
+    <h3>All Products</h3> 
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>code</th>
+                <th>name</th>
+                <th>details</th>
+                <th>image</th>
+                <th>price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products;">
+                <td>{{product.code}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.details}}</td>
+                <td><img src="{{product.image}}" alt="{{product.code}}" width="200" height="100"></td>
+                <td>{{product.price}}</td>
+                <td><a href="/productedit/{{product._id}}" class="btn btn-primary mx-1">Update</a> <button class="btn btn-danger mx-1" (click)="deleteProduct(product._id)">Delete</button></td>            </tr>
+        </tbody>
+    </table>
+</div>

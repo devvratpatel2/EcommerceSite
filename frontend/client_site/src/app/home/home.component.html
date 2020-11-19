@@ -1,0 +1,25 @@
+<div *ngIf="notify" class="alert alert-success container marge">
+    {{ notify }}
+</div>
+<div class="container">
+    <div class="row">
+
+        <div class="col-12 col-md-5 jumbotron m-4">
+            <h1 class="display-4">Fashionista Shop</h1>
+            <p>User Login Portal.</p>
+            <hr class="my-4">
+            <a routerLink="/auth/login" class="btn btn-primary btn-lg">
+                User Shop Login
+            </a>
+        </div>
+        <div class="col-12 col-md-5 jumbotron m-4">
+            <h1 class="display-4">Admin Portal</h1>
+            <p>This is only for administrative purposes.</p>
+            <hr class="my-4">
+            <a routerLink="/auth/login" class="btn btn-primary btn-lg">
+                Admin Login Portal
+            </a>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+    <h3>Add Company</h3>
+    <form [formGroup]="companyRef" (ngSubmit)="storeCompanyDetails()">
+        <label>Company Name:&nbsp;</label>
+        <input type="text" formControlName="name" required/>&nbsp;
+        <input type="submit">
+    </form>
+    <br/>
+    <h3>Current Companies</h3> 
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Company Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let company of companies;let rowIndex=index">
+                <td>{{rowIndex+1}}</td>
+                <td>{{company.name}}</td>
+                <td><a href="/companyedit/{{company._id}}" class="btn btn-primary mx-1">Update</a> 
+                    <button class="btn btn-danger mx-1" (click)="deleteCompany(company._id)">Delete</button></td>            
+            </tr>
+        </tbody>
+    </table>
+</div>

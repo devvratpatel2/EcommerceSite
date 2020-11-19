@@ -1,0 +1,8 @@
+<h3>Edit Company</h3>
+<br/>Company Name: {{companyName}}
+    
+<form [formGroup]="companyRef" (ngSubmit)="editCompanyDetails()">
+    <label>New Name:&nbsp;</label>
+    <input type="text" formControlName="name" required/>&nbsp;
+    <input type="submit" (click)="editCompanyDetails()">
+</form>

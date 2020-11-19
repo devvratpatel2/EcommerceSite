@@ -1,0 +1,25 @@
+<h3>Product List</h3>
+<table border="1" class="">
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Details</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Name</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let product of products">
+        <td>{{product.code}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.details}}</td>
+        <td>
+            <img src="{{product.image}}" width="250" height="100">
+        </td>
+        <td>{{product.price}}</td>
+        <td>{{product.company.name}}</td>
+        <td>
+            <a [routerLink]="['/cart', { id:product._id }]">Add to Cart</a>
+        </td>
+    </tr>
+</table>

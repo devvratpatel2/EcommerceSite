@@ -1,0 +1,29 @@
+<div class="card m-5 p-5">
+    <h3>Edit Product</h3>
+    <hr class="mx-5"/>
+    Product Code: {{selectedProduct ? selectedProduct.code : 'N/A'}} <br/>
+    Product Name: {{selectedProduct ? selectedProduct.name : 'N/A'}} <br/>
+    Product Details: {{selectedProduct ? selectedProduct.details : 'N/A'}} <br/>
+    Product Image: {{selectedProduct ? selectedProduct.image : 'N/A'}} <br/>
+    Product Price: {{selectedProduct ? selectedProduct.price : 'N/A'}} <br/>
+    Product Company: {{companyName}} <br/><br/>
+    <hr class="mx-5"/>
+    <h3>Enter New Product Details:</h3>
+    <form [formGroup]="productRef" (ngSubmit)="editProductDetails()">
+        <label>Code:&nbsp;</label>
+        <input type="text" formControlName="code" required/>&nbsp;<br/>
+        <label>Name:&nbsp;</label>
+        <input type="text" formControlName="name" required/>&nbsp;<br/>
+        <label>Details:&nbsp;</label>
+        <input type="text" formControlName="details" required/>&nbsp;<br/>
+        <label>Image (URL):&nbsp;</label>
+        <input type="text" formControlName="image" required/>&nbsp;<br/>
+        <label>Price:&nbsp;</label>
+        <input type="number" formControlName="price" required/>&nbsp;<br/>
+        <label>Company:&nbsp;</label>
+        <select formControlName="company" required>
+            <option value="{{company._id}}" *ngFor="let company of companies;">{{company.name}}</option>
+        </select>
+        <input type="submit" (click)="editProductDetails()">
+    </form>
+</div>
